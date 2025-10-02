@@ -1,5 +1,7 @@
 # CSVC-PSO Project
 
+[![GitHub](https://img.shields.io/badge/GitHub-gaomn/CSVC--PSO-blue)](https://github.com/gaomn/CSVC-PSO)
+
 [English](README_EN.md) | [中文](readme.md)
 
 ## Introduction
