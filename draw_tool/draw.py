@@ -85,7 +85,8 @@ def draw_from_file(**kwargs):
     if save_path:
         plt.savefig(save_path)
     plt.show()  # 图形可视化
-    print(f'{title}    {xlabel}                       :       {round(mean_lst3[-1])} {round(std_list3[-1])}\n'
-          f' {round(mean_lst1[-1])} {round(std_list1[-1])}       \n'
-          f' {round(mean_lst2[-1])} {round(std_list2[-1])}')
+    print(f'{title}    {xlabel}\n'
+          f'Our method:  {round(mean_lst3[-1])} \u00B1 {round(std_list3[-1])}\n'
+          f'Optimal:     {round(mean_lst1[-1])} \u00B1 {round(std_list1[-1])}\n'
+          f'PSO only:    {round(mean_lst2[-1])} \u00B1 {round(std_list2[-1])}\n')
 

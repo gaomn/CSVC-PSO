@@ -20,7 +20,7 @@ def set_param():
     parser.add_argument('--peak_sigma', default=5, type=float)
     parser.add_argument('--time_fac', default=100., type=float)
     parser.add_argument('--max_step', default=100, type=float)
-    parser.add_argument('--bt_type', default='linear', type=str,  help="'linear', 'sin', 'cir'")
+    parser.add_argument('--bt_type', default='cir', type=str,  help="'linear', 'sin', 'cir'")
 
     ''' pso args '''
     parser.add_argument('--Population_size', default=100, type=int)
@@ -41,8 +41,10 @@ def set_param():
     parser.add_argument('--rand_seed', default=10086, type=float)
     parser.add_argument('--MPB_seed', default=123, type=float)
     parser.add_argument('--filename',  default='data_save/run_data', type=str)
-    parser.add_argument('--sample_num', default=20, type=int)
-    parser.add_argument('--b_list', default=[10, 50, 100], type=list)
+    parser.add_argument('--sample_num', default=10, type=int)
+    parser.add_argument('--b_list', default=[100], type=list)
+    parser.add_argument('--bt_type_list', default=['linear'], type=list, help="'linear', 'sin', 'cir'")
+    parser.add_argument('--bt_change', default='discrete', type=str, help="discrete, continuous")
     parser.add_argument('--using_multiprocessing', default=True, type=bool)
 
     args = parser.parse_args()

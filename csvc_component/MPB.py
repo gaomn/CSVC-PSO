@@ -2,7 +2,6 @@ import math
 import itertools
 import random
 import numpy as np
-import configs
 
 try:
     from collections.abc import Sequence
@@ -103,7 +102,8 @@ class MovingPeaks:
         pfunc = sc.get("pfunc")
         npeaks = sc.get("npeaks")
 
-        random.seed(sc.get("args").rand_seed)
+        self.args = sc.get("args")
+        random.seed(self.args.rand_seed)
         self.random = random
 
         self.dim = dim
@@ -140,8 +140,9 @@ class MovingPeaks:
         self.move_severity = sc.get("move_severity")
         self.height_severity = sc.get("height_severity")
         self.width_severity = sc.get("width_severity")
+
         try:
-            self.time_fac = sc.get("args").time_fac
+            self.time_fac = self.args.time_fac
         except:
             print('No time-fac!!')
             self.time_fac = 0.
@@ -365,79 +366,63 @@ class MovingPeaks:
                 self.peaks_width[i] = new_value
 
         # Change time_fac
-        self.time_fac_sym = self.get_sym(individual)
+        if self.args.bt_change == 'continuous':
+            self.time_fac_sym = self.get_sym_con(individual)
+        else:
+            self.time_fac_sym = self.get_sym_dis(individual)
+
         self._optimum = None
 
-    @ classmethod
-    def get_sym(cls, x):
+    def get_sym(self, x):
+        if self.args.bt_change == 'continuous':
+            return self.get_sym_con(x)
+        else:
+            return self.get_sym_dis(x)
+
+    def get_sym_dis(self, x):
         # bt_type', default='linear', type=str,  help="'linear', 'sin', 'cir'")
-        bt_type = configs.set_param().bt_type
+        bt_type = self.args.bt_type
+        xb = self.args.x_bound
         if bt_type == 'linear':
             sym = 1 if x[0] >= 0. else -1
         elif bt_type == 'sin':
-            sym = 1 if 2 * np.sin(0.2 * np.pi * x[0]) <= x[1] else -1
+            sym = 1 if 2 * np.sin(0.2 * np.pi * x[0]) >= x[1] else -1
         elif bt_type == 'cir':
-            sym = 1 if x[0]**2 + x[1]**2 <= 15.9 else -1
+            sym = 1 if x[0] ** 2 + x[1] ** 2 <= 2 * xb**2 / np.pi else -1
         elif bt_type == 'rect':
             sym = 1 if -3.54 <= x[0] <= 3.54 and -3.54 <= x[1] <= 3.54 else -1
+
+        elif bt_type == 'linear4':
+            sym = 2 if x[0] >= xb/2. else (1 if x[0] >= 0 else (-1 if x[0] >= -xb/2. else -2))
+        elif bt_type == 'sin4':
+            sym = 2 if 2 * np.sin(0.2 * np.pi * x[0]) >= x[1] + xb/2. else \
+                (1 if 2 * np.sin(0.2 * np.pi * x[0]) >= x[1] else
+                 (-1 if 2 * np.sin(0.2 * np.pi * x[0]) <= x[1] - xb/2. else -2))
+        elif bt_type == 'cir4':
+            sym = 2 if x[0] ** 2 + x[1] ** 2 <= xb**2 / np.pi else \
+                (1 if x[0] ** 2 + x[1] ** 2 <= 2 * xb**2 / np.pi else
+                 (-1 if x[0] ** 2 + x[1] ** 2 <= 3 * xb**2 / np.pi else -2))
         else:
             print("bt_type error! ensure your bt_type: 'linear', 'sin', 'cir', 'rect'")
             raise
 
         return sym
 
+    def get_sym_con(self, x):
+        # bt_type', default='linear', type=str,  help="'linear', 'sin', 'cir'")
+        bt_type = self.args.bt_type
+        xb = self.args.x_bound
+        if bt_type == 'linear':
+            sym = x[0]/5.
+        elif bt_type == 'sin':
+            sym = (x[1] - 2 * np.sin(0.2 * np.pi * x[0]))/5.
+        elif bt_type == 'cir':
+            sym = (x[0] ** 2 + x[1] ** 2)/25.
+        else:
+            print("bt_type error! ensure your bt_type: 'linear', 'sin', 'cir'")
+            raise
 
-
-SCENARIO_1 = {"pfunc": function1,
-              "npeaks": 5,
-              "bfunc": None,
-              "min_coord": 0.0,
-              "max_coord": 100.0,
-              "min_height": 30.0,
-              "max_height": 70.0,
-              "uniform_height": 50.0,
-              "min_width": 0.0001,
-              "max_width": 0.2,
-              "uniform_width": 0.1,
-              "lambda_": 0.0,
-              "move_severity": 1.0,
-              "height_severity": 7.0,
-              "width_severity": 0.01,
-              "period": 5000}
-
-SCENARIO_2 = {"pfunc": cone,
-              "npeaks": 10,
-              "bfunc": None,
-              "min_coord": 0.0,
-              "max_coord": 100.0,
-              "min_height": 30.0,
-              "max_height": 70.0,
-              "uniform_height": 50.0,
-              "min_width": 1.0,
-              "max_width": 12.0,
-              "uniform_width": 0,
-              "lambda_": 0.5,
-              "move_severity": 1.0,
-              "height_severity": 7.0,
-              "width_severity": 1.0,
-              "period": 5000}
-
-SCENARIO_3 = {"pfunc": cone,
-              "npeaks": 50,
-              "bfunc": lambda x: 10,
-              "min_coord": 0.0,
-              "max_coord": 100.0,
-              "min_height": 30.0,
-              "max_height": 70.0,
-              "uniform_height": 0,
-              "min_width": 1.0,
-              "max_width": 12.0,
-              "uniform_width": 0,
-              "lambda_": 0.5,
-              "move_severity": 1.0,
-              "height_severity": 1.0,
-              "width_severity": 0.5,
-              "period": 1000}
+        return sym
 
 SCENARIO_4 = {"pfunc": cone,
               "npeaks": 1,
