@@ -19,10 +19,13 @@ If you use this code in your research, please cite our paper:
 
 ```bibtex
 @inproceedings{gao2023csvc,
-  title={CSVC-PSO: A Clustering-based Support Vector Classifier for Dynamic Time-Linkage Optimization},
-  author={Gao, Meng and others},
+  title={A Clustering-Based Support Vector Classifier for Dynamic Time-Linkage Optimization},
+  author={Gao, M. and Liu, X.-F. and Zhan, Z.-H. and Zhang, J.},
   booktitle={2023 IEEE Symposium Series on Computational Intelligence (SSCI)},
   year={2023},
+  pages={953--958},
+  address={Mexico City, Mexico},
+  doi={10.1109/SSCI52147.2023.10371998},
   organization={IEEE}
 }
 ```

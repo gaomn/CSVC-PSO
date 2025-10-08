@@ -9,7 +9,7 @@
 
 本仓库是以下论文的官方实现：
 
-**"CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems"**
+**"A Clustering-Based Support Vector Classifier for Dynamic Time-Linkage Optimization"**
 
 *发表于: IEEE Symposium Series on Computational Intelligence (SSCI) 2023*
 
@@ -19,10 +19,13 @@
 
 ```bibtex
 @inproceedings{gao2023csvc,
-  title={CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems},
-  author={Gao, Meng and others},
+  title={A Clustering-Based Support Vector Classifier for Dynamic Time-Linkage Optimization},
+  author={Gao, M. and Liu, X.-F. and Zhan, Z.-H. and Zhang, J.},
   booktitle={2023 IEEE Symposium Series on Computational Intelligence (SSCI)},
   year={2023},
+  pages={953--958},
+  address={Mexico City, Mexico},
+  doi={10.1109/SSCI52147.2023.10371998},
   organization={IEEE}
 }
 ```
