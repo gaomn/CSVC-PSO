@@ -1,4 +1,4 @@
-# CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization
+# CSVC-PSO: Clustering-based Support Vector Classifier Particle Swarm Optimization
 
 [![GitHub](https://img.shields.io/badge/GitHub-gaomn/CSVC--PSO-blue)](https://github.com/gaomn/CSVC-PSO)
 [![Paper](https://img.shields.io/badge/Paper-IEEE%20SSCI%202023-red)](https://ieeexplore.ieee.org/)
@@ -9,7 +9,7 @@
 
 This repository is the official implementation of:
 
-**"CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems"**
+**"A Clustering-based Support Vector Classifier for Dynamic Time-Linkage Optimization"**
 
 *Published in: IEEE Symposium Series on Computational Intelligence (SSCI) 2023*
 
@@ -19,7 +19,7 @@ If you use this code in your research, please cite our paper:
 
 ```bibtex
 @inproceedings{gao2023csvc,
-  title={CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems},
+  title={CSVC-PSO: A Clustering-based Support Vector Classifier for Dynamic Time-Linkage Optimization},
   author={Gao, Meng and others},
   booktitle={2023 IEEE Symposium Series on Computational Intelligence (SSCI)},
   year={2023},
@@ -29,7 +29,7 @@ If you use this code in your research, please cite our paper:
 
 ## Abstract
 
-This project implements and tests the Support Vector Classifier-based Particle Swarm Optimization (CSVC-PSO) algorithm on Moving Peaks Benchmark (MPB) problems. The project aims to research and evaluate the effectiveness of support vector classifiers in dynamic optimization problems.
+This project implements and tests the Clustering-based Support Vector Classifier-based Particle Swarm Optimization (CSVC-PSO) algorithm on Moving Peaks Benchmark (MPB) problems. The project aims to research and evaluate the effectiveness of clustering-based support vector classifiers in dynamic optimization problems.
 
 ### Key Features
 
