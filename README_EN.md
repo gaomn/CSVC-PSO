@@ -1,12 +1,35 @@
-# CSVC-PSO Project
+# CSVC-PSO: Clustering-based Support Vector Classifier Particle Swarm Optimization
 
 [![GitHub](https://img.shields.io/badge/GitHub-gaomn/CSVC--PSO-blue)](https://github.com/gaomn/CSVC-PSO)
+[![Paper](https://img.shields.io/badge/Paper-IEEE%20SSCI%202023-red)](https://ieeexplore.ieee.org/)
 
 [English](README_EN.md) | [中文](readme.md)
 
-## Introduction
+## 📄 Paper Information
 
-This project implements and tests the Support Vector Classifier-based Particle Swarm Optimization (CSVC-PSO) algorithm on Moving Peaks Benchmark (MPB) problems. The project aims to research and evaluate the effectiveness of support vector classifiers in dynamic optimization problems.
+This repository is the official implementation of:
+
+**"A Clustering-based Support Vector Classifier for Dynamic Time-Linkage Optimization"**
+
+*Published in: IEEE Symposium Series on Computational Intelligence (SSCI) 2023*
+
+### Citation
+
+If you use this code in your research, please cite our paper:
+
+```bibtex
+@inproceedings{gao2023csvc,
+  title={CSVC-PSO: A Clustering-based Support Vector Classifier for Dynamic Time-Linkage Optimization},
+  author={Gao, Meng and others},
+  booktitle={2023 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  year={2023},
+  organization={IEEE}
+}
+```
+
+## Abstract
+
+This project implements and tests the Clustering-based Support Vector Classifier-based Particle Swarm Optimization (CSVC-PSO) algorithm on Moving Peaks Benchmark (MPB) problems. The project aims to research and evaluate the effectiveness of clustering-based support vector classifiers in dynamic optimization problems.
 
 ### Key Features
 
@@ -15,6 +38,20 @@ This project implements and tests the Support Vector Classifier-based Particle S
 * Supports multi-parameter configuration and automatic result saving
 * Utilizes multi-process parallel execution for improved efficiency
 * Provides automated result visualization tools
+
+## 🚀 Quick Start
+
+```bash
+# Create conda environment
+conda create --name cldm python=3.9
+conda activate cldm
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the project
+python main.py
+```
 
 ## Main Code Files
 
@@ -138,4 +175,12 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## License
 
-This project is open source. Please refer to the license file for details.
+This project is open source. Please refer to the LICENSE file for details.
+
+## Acknowledgments
+
+This research work was published at the IEEE SSCI 2023 conference. We thank the reviewers for their valuable comments and suggestions.
+
+## Contact
+
+For any questions or suggestions, please feel free to contact us through GitHub Issues.
