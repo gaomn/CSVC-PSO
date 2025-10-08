@@ -1,10 +1,33 @@
-# CSVC-PSO 项目
+# CSVC-PSO: 基于支持向量分类器的粒子群优化算法
 
 [![GitHub](https://img.shields.io/badge/GitHub-gaomn/CSVC--PSO-blue)](https://github.com/gaomn/CSVC-PSO)
+[![Paper](https://img.shields.io/badge/Paper-IEEE%20SSCI%202023-red)](https://ieeexplore.ieee.org/)
 
 [English](README_EN.md) | [中文](readme.md)
 
-## 简介
+## 📄 论文信息
+
+本仓库是以下论文的官方实现：
+
+**"CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems"**
+
+*发表于: IEEE Symposium Series on Computational Intelligence (SSCI) 2023*
+
+### 引用格式
+
+如果您在研究中使用了本代码，请引用我们的论文：
+
+```bibtex
+@inproceedings{gao2023csvc,
+  title={CSVC-PSO: Support Vector Classifier-based Particle Swarm Optimization for Dynamic Optimization Problems},
+  author={Gao, Meng and others},
+  booktitle={2023 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  year={2023},
+  organization={IEEE}
+}
+```
+
+## 摘要
 
 本项目实现并测试了基于支持向量分类器的粒子群优化 (CSVC-PSO) 算法，并在动态多峰基准 (Moving Peaks Benchmark, MPB) 问题上进行了测试。该项目旨在研究和评估支持向量分类器在动态优化问题中的有效性。
 
@@ -16,7 +39,7 @@
 - **并行处理**: 利用多进程并行执行实验以提高效率
 - **可视化工具**: 提供自动化的结果可视化工具
 
-## 快速开始
+## 🚀 快速开始
 
 ```bash
 # 创建conda环境
@@ -135,4 +158,12 @@ csvc_pso/
 
 ## 许可证
 
-本项目为开源项目。
+本项目采用开源许可证发布。详情请参阅LICENSE文件。
+
+## 致谢
+
+本研究工作发表于IEEE SSCI 2023会议。感谢审稿人的宝贵意见和建议。
+
+## 联系方式
+
+如有任何问题或建议，欢迎通过GitHub Issues联系我们。
